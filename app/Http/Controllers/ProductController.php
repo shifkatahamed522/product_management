@@ -126,6 +126,8 @@ class ProductController extends Controller
                     $imageName = time().'.'.$request->image->extension();
                     $request->image->move(public_path('images'), $imageName);
                     $imagePath = 'images/'.$imageName;
+                }else {
+                    $imagePath = null;
                 }
 
                 Product::where('id',$id)->update([
